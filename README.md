@@ -4,11 +4,18 @@ Breakpad is a set of client and server components which implement a crash-report
 ## My Build Environment
 Ubuntu 14.04 64-bit  
 Android NDK r10e  
+gcc 4.8.4  
 
-## Build
+## Build libbreakpad.so
 1) set NDK to PATH  
 2) cd ./jni  
 3) ndk-build clean  
 4) ndk-build  
 5) go check output files in ../libs/armeabi-v7a/  
 6) go check intermediate files in ../obj/ if you need  
+
+## Build dump_syms and minidump_stackwalk
+1) cd ./jni/googlebreakpad/src  
+2) ./configure  
+3) make  
+4) go check output files at ./processor/minidump_stackwalk and ./tools/linux/dump_syms/dump_syms  
