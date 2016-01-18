@@ -86,8 +86,10 @@ static jint jni_native_init(JNIEnv * env, jclass clazz, jstring path)
 static jint jni_native_crash(JNIEnv * env, jclass clazz)
 {
   LOGD("%s\n", __func__);
-  // TODO: this method is called by java but I don't know what does it do, so 
-  //       it's not implemented.
+  // TODO: this method is called by java to generate a native crash to test 
+  // breakpad.
+  volatile int* a = reinterpret_cast<volatile int*>(NULL);
+  *a = 1;
   return 0;
 }
 
